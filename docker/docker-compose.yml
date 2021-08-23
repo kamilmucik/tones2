@@ -1,0 +1,18 @@
+version: '3'
+services:
+    php-apache:
+        build:
+            context: ./php-apache
+        ports:
+            -  80:80
+        volumes:
+            - ./DocumentRoot:/var/www/html
+        networks:
+          app_net_react:
+            ipv4_address: 10.99.100.4
+networks:
+  app_net_react:
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.99.100.0/24"
