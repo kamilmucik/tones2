@@ -1,6 +1,7 @@
 import {Fragment, useContext} from 'react';
 import AppContext from '../../store/app-context';
 import classes from './NotePanel.module.css';
+import NoteImage from './NoteImage';
 
 const DUMMY_SONG = {
     title: 'Sto lat',
@@ -172,8 +173,9 @@ const NotePanel = props => {
 
     const noteList = DUMMY_SONG.notes.map(note => 
     <li className={classes.li}>
-        <a onClick={() => changeNoteFunction(note.note)}>{note.note}</a>
-        {/* <a onClick={() => changeNoteFunction(note.note)}>{note.note}</a> */}
+        <a className={classes.a} onClick={() => changeNoteFunction(note.note)}>
+            <NoteImage letter={note.note} />
+        </a>
     </li>);
 
     return <Fragment>

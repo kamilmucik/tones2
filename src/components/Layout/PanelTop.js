@@ -2,6 +2,9 @@ import {Fragment, useContext, useState, useEffect} from 'react';
 import classes from './PanelTop.module.css';
 import mainHand from '../../assets/main_hand.png';
 import mainPlay from '../../assets/main_play.png';
+import mainPause from '../../assets/main_pause.png';
+import mainResume from '../../assets/main_resume.png';
+import mainStop from '../../assets/main_stop.png';
 import mainOptions from '../../assets/main_options.png';
 import Toggle from '../common/Toggle.component';
 import AppContext from '../../store/app-context';
@@ -73,14 +76,20 @@ const PanelTop = props => {
                             /> */}
 
                             {!timerOn && time === 0 && (
-                                <button onClick={() => setTimerOn(true)}>Start</button>
+                                // <button onClick={() => setTimerOn(true)}>Start</button>
+                                <a onClick={() => setTimerOn(true)}><img src={mainPlay} /></a>
                             )}
-                            {timerOn && <button onClick={() => setTimerOn(false)}>Stop</button>}
+                            {timerOn && <a onClick={() => setTimerOn(false)}><img src={mainPause} /></a>}
+                            {/* {timerOn && <button onClick={() => setTimerOn(false)}>Stop</button>} */}
                             {!timerOn && time > 0 && (
-                                <button onClick={() => appCtx.setCurrentPlayTime(0)}>Reset</button>
+                                // <button onClick={() => appCtx.setCurrentPlayTime(0)}>Reset</button>
+                                <a onClick={() => appCtx.setCurrentPlayTime(0)}><img src={mainStop} /></a>
+                                // <button onClick={() => appCtx.setCurrentPlayTime(0)}>Reset</button>
                             )}
                             {!timerOn && time > 0 && (
-                                <button onClick={() => setTimerOn(true)}>Resume</button>
+                                // mainResume
+                                <a onClick={() => setTimerOn(true)}><img src={mainResume} /></a>
+                                // <button onClick={() => setTimerOn(true)}>Resume</button>
                             )}
 
                         </td>

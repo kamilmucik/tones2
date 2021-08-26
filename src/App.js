@@ -10,6 +10,7 @@ import Metronom from './components/Layout/Metronom';
 import ModalMenu from './components/Layout/ModalMenu'
 import DebugPanel from './components/Layout/DebugPanel';
 import AppProvider from './store/AppProvider';
+import './App.css'
 
 function App() {
   const [modalIsShown, setModalIsShown] = useState(false);
