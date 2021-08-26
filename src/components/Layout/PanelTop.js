@@ -88,7 +88,7 @@ const PanelTop = props => {
                             )}
                             {!timerOn && time > 0 && (
                                 // mainResume
-                                <a onClick={() => setTimerOn(true)}><img src={mainResume} /></a>
+                                <a onClick={() => setTimerOn(true)}><img src={mainPlay} /></a>
                                 // <button onClick={() => setTimerOn(true)}>Resume</button>
                             )}
 
