@@ -1,0 +1,19 @@
+---
+- name: Deploy app
+  hosts: webserver
+  become: true
+  tasks:
+    - name: Copy ZIP to remote
+      copy: 
+        src: ./target/tones-0.0.1-dev.zip
+        dest: /tmp/tones-0.0.1-dev.zip
+    - name: Delete content & directory
+      file:
+        state: absent
+        path: /home/tonesuser/public_html
+    - name: Creates directory
+      file:
+        path: /home/tonesuser/public_html
+        state: directory
+    - name: Unzip archive
+      unarchive: src=/tmp/tones-0.0.1-dev.zip dest=/home/tonesuser/public_html/ remote_src=yes
