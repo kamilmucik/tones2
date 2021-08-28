@@ -7,7 +7,6 @@
   
   .li {
     float: left;
-    /* margin-left: 10px; */
   }
 
   .a {
@@ -20,37 +19,43 @@
     background-color: cadetblue;
   }
 
-  /* Slideshow */
-
-.slideshow {
-  margin: 0 auto;
-  overflow: hidden;
-  max-width: 500px;
+.slideshowContainer{
+  display: block;
+  float: left;
+  border-left: 3px solid red;
+  padding-left: 10px;
 }
 
-.slideshowSlider {
+.mySlides {
   white-space: nowrap;
+  height: 140px;
+  overflow: hidden;
+} 
+
+
+.slideItem{
+  float: left;
 }
 
-.slide {
-  display: inline-block;
+.left, .right {  
+  cursor: pointer;  
+  position: absolute;  
+  /* top: 50%;   */
+  width: auto;  
+  padding: 16px;  
+  margin-top: -22px;  
+  color: rgb(31, 10, 218);  
+  font-weight: bold;  
+  font-size: 18px;  
+  transition: 0.6s ease;  
+  border-radius: 0 3px 3px 0;  
+}  
+.right {  
+  /* right: 0;   */
+  margin-left: 50px;
+  border-radius: 3px 0 0 3px;  
+}  
 
-  height: 400px;
-  width: 100%;
-  border-radius: 40px;
-}
-
-/* Buttons */
-.slideshowDots {
-  text-align: center;
-}
-.slideshowDot {
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin: 15px 7px 0px;
-  background-color: #c4c4c4;
-}
-  
+.left:hover, .right:hover {  
+  background-color: rgba(115, 115, 115, 0.8);  
+}  
