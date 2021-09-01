@@ -3,7 +3,6 @@ import classes from './PanelBottom.module.css';
 import mainMicrophone from '../../assets/main_microphone.png';
 import mainTime from '../../assets/main_time.png';
 import Toggle from '../common/Toggle.component';
-import Modal from '../common/Modal.component';
 import AppContext from '../../store/app-context';
 
 const PanelBottom = props => {
@@ -21,6 +20,7 @@ const PanelBottom = props => {
         <header className={classes.header}>
             <div>
                 <table className={classes.buttonWrapper}>
+                <tbody>
                     <tr>
                         <td className={classes.buttonCenter}>
                             <a onClick={props.onShowModal}><img src={mainTime} /></a>
@@ -33,6 +33,7 @@ const PanelBottom = props => {
                             />
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </header>

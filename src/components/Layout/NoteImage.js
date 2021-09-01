@@ -62,18 +62,18 @@ const NoteImage = props => {
         <svg width="20" height="140" viewBox="0 0 20 140" xmlns="http://www.w3.org/2000/svg" version="1.1">
 
         <g stroke="black" >
-            <line x1="0" y1={line1} x2="20" y2={line1} stroke-width="2"  />
-            <line x1="0" y1={line2} x2="20" y2={line2} stroke-width="2"  />
-            <line x1="0" y1={line3} x2="20" y2={line3} stroke-width="2"  />
-            <line x1="0" y1={line4} x2="20" y2={line4} stroke-width="2"  />
-            <line x1="0" y1={line5} x2="20" y2={line5} stroke-width="2"  />
+            <line x1="0" y1={line1} x2="20" y2={line1} strokeWidth="2"  />
+            <line x1="0" y1={line2} x2="20" y2={line2} strokeWidth="2"  />
+            <line x1="0" y1={line3} x2="20" y2={line3} strokeWidth="2"  />
+            <line x1="0" y1={line4} x2="20" y2={line4} strokeWidth="2"  />
+            <line x1="0" y1={line5} x2="20" y2={line5} strokeWidth="2"  />
         </g>
 
         <g transform={noteTransform}>
             <ellipse rx="7" ry="5" fill="black"  />
         </g>
 
-        <text x="0" y="15" font-size="10px" fill="red">{props.letter}</text>
+        <text x="0" y="15" fontSize="10px" fill="red">{props.letter}</text>
 
         </svg>
 

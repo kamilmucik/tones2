@@ -3,7 +3,6 @@ import classes from './PanelTop.module.css';
 import mainHand from '../../assets/main_hand.png';
 import mainPlay from '../../assets/main_play.png';
 import mainPause from '../../assets/main_pause.png';
-import mainResume from '../../assets/main_resume.png';
 import mainStop from '../../assets/main_stop.png';
 import mainOptions from '../../assets/main_options.png';
 import Toggle from '../common/Toggle.component';
@@ -16,14 +15,6 @@ const PanelTop = props => {
     const [timerOn, setTimerOn] = useState(false);
 
     const chartCheckedValue = appCtx.chartCheckedValue;
-    const playCheckedValue = appCtx.playCheckedValue;
-
-    const checkPlayHandler = () => {
-        appCtx.setPlayChecked(true);
-    };
-    const uncheckPlayHandler = () => {
-        appCtx.setPlayChecked(false);
-    };
 
     const checkChartHandler = () => {
         appCtx.setChartChecked(true);
@@ -42,9 +33,6 @@ const PanelTop = props => {
         } else if (!timerOn) {
           clearInterval(interval);
         }
-
-        
-        // 
     
         return () => clearInterval(interval);
       }, [timerOn]);
@@ -58,6 +46,7 @@ const PanelTop = props => {
         <header className={classes.header}>
             <div>
                 <table className={classes.buttonWrapper}>
+                    <tbody>
                     <tr>
                         <td className={classes.buttonCenter}>
                             <Toggle 
@@ -100,6 +89,7 @@ const PanelTop = props => {
                             />
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </header>

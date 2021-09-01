@@ -1,4 +1,4 @@
-import {Fragment, useState} from 'react';
+import { useState} from 'react';
 import classes from './Toggle.module.css';
 
 
@@ -18,7 +18,7 @@ const Toggle = props => {
     return (
         <a onClick={handleClick}  className={ isToggleOn ? classes.checked : classes.unchecked } >
             {/* {isToggleOn ? 'WŁĄCZONY' : 'WYŁĄCZONY'} */}
-            <img src={props.imgScr} />
+            <img src={props.imgScr} alt={isToggleOn ? 'WŁĄCZONY' : 'WYŁĄCZONY'}/>
         </a>
       );
 };

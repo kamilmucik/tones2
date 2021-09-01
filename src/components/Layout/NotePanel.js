@@ -3,10 +3,6 @@ import AppContext from '../../store/app-context';
 import classes from './NotePanel.module.css';
 import NoteImage from './NoteImage';
 
-import mainPlay from '../../assets/main_play.png';
-import mainPause from '../../assets/main_pause.png';
-import mainResume from '../../assets/main_resume.png';
-import mainStop from '../../assets/main_stop.png';
 
 const DUMMY_SONG = {
     title: 'Sto lat',
@@ -233,34 +229,45 @@ const DUMMY_SONG = {
     ]
 }
 
-const colors = ["#0088FE", "#00C49F", "#FFBB28"];
-const delay = 2500;
-
 const NotePanel = props => {
 
     const appCtx = useContext(AppContext);
 
+    const [timerOn, setTimerOn] = useState(false);
     const [index, setIndex] = useState(0);
     
     const [indexTransalte, setIndexTransalte] = useState(0);
 
     useEffect(() => {
-        setTimeout(
-        () =>
-            setIndex((prevIndex) =>
-            prevIndex === DUMMY_SONG.notes.length - 1 ? 0 : prevIndex + 1
-            ),
-        // delay
-        DUMMY_SONG.notes[index].delay + 200
-        );
-        return () => {};
-    }, [index]);
+        // let timerOn = appCtx.microphoneChecked;
+
+        if (timerOn) {
+
+            setTimeout(
+                () =>
+                    setIndex((prevIndex) =>
+                    prevIndex === DUMMY_SONG.notes.length - 1 ? 0 : prevIndex + 1
+                    ),
+                // delay
+                DUMMY_SONG.notes[index].delay + 200
+            );
+            return () => {};
+
+        }
+    }, [index,timerOn]);
 
     useEffect(() => {
         // appCtx.setCurrentPlayTime(time);
         appCtx.setCurrentNote(DUMMY_SONG.notes[index].note);
-        // console.log(DUMMY_SONG.notes[index].note, '- Has changed')
-        },[index]) // <-- here put the parameter to listen
+        console.log(DUMMY_SONG.notes[index].note, '- Has changed');
+        },[index]); // <-- here put the parameter to listen
+
+    useEffect(() => {
+        // setTimerOn(microphoneChecked);
+        // appCtx.setCurrentPlayTime(time);
+        // appCtx.setCurrentNote(DUMMY_SONG.notes[index].note);
+        console.log(timerOn, 'microphoneChecked - Has changed')
+    },[timerOn]); // <-- here put the parameter to listen
 
 
     function changeNoteFunction(name) {
@@ -272,63 +279,39 @@ const NotePanel = props => {
     function nextSlide(n) {
         console.log(`hello, ${n}`);
         setIndexTransalte(indexTransalte+n);
+        setTimerOn(!timerOn);
     }
     
 
-    const noteList = DUMMY_SONG.notes.map(note => 
-    <li className={classes.li}>
-        <a className={classes.a} onClick={() => changeNoteFunction(note.note)}>
-            <NoteImage letter={note.note} />
-        </a>
-    </li>);
-
     return <Fragment>
-        {/* <div className={classes.slideshow}>
-            <div
-                className={classes.slideshowSlider}
-                style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-            >
-                {DUMMY_SONG.notes.map((backgroundColor, index) => (
+        <div className={classes.slideshowCenterContainer}>
+            <div className={classes.slideshowContainer}>
                 <div
-                    className={classes.slide}
-                    key={index}
-                    // style={{ backgroundColor }}
+                className={classes.mySlides}
+                style={{ transform: `translate(${(-index * 20)-20 }px, 0)`, transitionDuration: `0.2s`}}
                 >
-                    {/* {DUMMY_SONG.notes[index].note} */}
-                    {/* a_{index} */}
-                    {/* <NoteImage letter={DUMMY_SONG.notes[index].note} />
+                    {DUMMY_SONG.notes.map((backgroundColor, index) => (
+                    <div 
+                        className={classes.slideItem}
+                        key={index}
+                    >
+                        <NoteImage letter={DUMMY_SONG.notes[index].note} withNote={DUMMY_SONG.notes[index].withNote} />
+                    </div>
+
+                    ))}
                 </div>
 
-                ))}
-            </div> */}
-        {/* </div> */} 
+            </div> 
 
-
-        <div className={classes.slideshowContainer}>
-            <div
-               className={classes.mySlides}
-               style={{ transform: `translate(${(-index * 20)-20 }px, 0)`, transitionDuration: `0.2s`}}
-            >
-                {DUMMY_SONG.notes.map((backgroundColor, index) => (
-                <div 
-                    className={classes.slideItem}
-                    key={index}
-                >
-                    <NoteImage letter={DUMMY_SONG.notes[index].note} withNote={DUMMY_SONG.notes[index].withNote} />
-                </div>
-
-                ))}
+            <div style={{width: "200px"}}>
+                {index}:
+                {indexTransalte}:
+                {timerOn ? 'true' : 'false'}
+                
+                <a className={classes.left} onClick={() => nextSlide(-1)}>❮</a>  
+                &nbsp;
+                <a className={classes.right}onClick={() => nextSlide(1)}>❯</a>  
             </div>
-
-        </div> 
-
-        <div style={{width: "200px"}}>
-            {index}
-            {indexTransalte}
-            
-            <a className={classes.left} onClick={() => nextSlide(-1)}>❮</a>  
-            &nbsp;
-            <a className={classes.right}onClick={() => nextSlide(1)}>❯</a>  
         </div>
     </Fragment>
 };

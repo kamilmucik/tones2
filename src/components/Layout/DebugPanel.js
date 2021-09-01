@@ -18,6 +18,7 @@ const DebugPanel = props => {
     return <Fragment>
         <div className={classes.location}>
             <table>
+            <tbody>
                 <tr><td>version</td><td>:</td><td>{packageJson.version}</td></tr>  
                 <tr><td>metronom tempo</td><td>:</td><td>{metronomTempoValue}</td></tr>        
                 <tr><td>currentInstrument</td><td>:</td><td>{currentInstrument}</td></tr>        
@@ -33,6 +34,7 @@ const DebugPanel = props => {
                         <span>{("0" + ((currentPlayTime / 10) % 100)).slice(-2)}</span>
                     </td>
                 </tr>
+                </tbody>
             </table>
         </div>
     </Fragment>

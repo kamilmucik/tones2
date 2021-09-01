@@ -24,6 +24,21 @@
   float: left;
   border-left: 3px solid red;
   padding-left: 10px;
+  width: 1000px;
+}
+
+.slideshowCenterContainer{
+  border: 1px solid;
+  overflow: hidden;
+    margin: 0 auto;
+    width: 600px;
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding-left: 150px;
 }
 
 .mySlides {
