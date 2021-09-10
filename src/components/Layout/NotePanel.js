@@ -2,7 +2,7 @@ import {Fragment, useContext, useState, useEffect} from 'react';
 import AppContext from '../../store/app-context';
 import classes from './NotePanel.module.css';
 import NoteImage from './NoteImage';
-
+import P5Example01 from '../common/P5Example01';
 
 const DUMMY_SONG = {
     title: 'Sto lat',
@@ -281,6 +281,7 @@ const NotePanel = props => {
         setIndexTransalte(indexTransalte+n);
         setTimerOn(!timerOn);
     }
+
     
 
     return <Fragment>
@@ -311,6 +312,9 @@ const NotePanel = props => {
                 <a className={classes.left} onClick={() => nextSlide(-1)}>❮</a>  
                 &nbsp;
                 <a className={classes.right}onClick={() => nextSlide(1)}>❯</a>  
+            </div>
+            <div>
+                <P5Example01 />
             </div>
         </div>
     </Fragment>
