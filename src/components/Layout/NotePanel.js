@@ -314,7 +314,7 @@ const NotePanel = props => {
                 <a className={classes.right}onClick={() => nextSlide(1)}>❯</a>  
             </div>
             <div>
-                <P5Example01 />
+                <P5Example01 testIndx={index} currNote={DUMMY_SONG.notes[index].note} />
             </div>
         </div>
     </Fragment>
