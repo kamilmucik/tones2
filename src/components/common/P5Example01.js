@@ -1,10 +1,4 @@
-/**
- * Created by zhaonan on 2018/3/2.
- */
- import React, { Component } from 'react';
- 
-import AppContext from '../../store/app-context';
-import { p5 } from 'p5';
+import React, { Component } from 'react';
 import Sketch from "react-p5";
 import getNoteFrequenc from '../common/getNoteFrequency';
 import 'p5/lib/addons/p5.sound';
@@ -17,7 +11,7 @@ import 'p5/lib/addons/p5.sound';
         super(props);
 
         this.state = { 
-            loadedState: false ,
+        //     loadedState: false ,
             osc: null,
             currentFreq: 493.88,
             isAnalysis: false
@@ -25,7 +19,6 @@ import 'p5/lib/addons/p5.sound';
 
         this.togglePlaying = this.togglePlaying.bind(this);
         this.setup = this.setup.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.runAnalysis = this.runAnalysis.bind(this);
     }
 
@@ -43,37 +36,16 @@ import 'p5/lib/addons/p5.sound';
         });
     }
     
-    loaded() {
-        this.loadedState = true;
-    }
-    
     togglePlaying() {
-        
+        let tmp = this.state.isAnalysis;
         this.setState({ 
             isAnalysis: true
+            // isAnalysis: !this.state.isAnalysis
         });
-
-        // let osc = this.state.osc;
-        // let duration = 500;
-
-        // osc.freq(this.state.currentFreq);
-        // // // Fade it in
-        // osc.fade(0.5,0.2);
-        // // If we sest a duration, fade it out
-        // if (duration) {
-        //     setTimeout(function() {
-        //         osc.fade(0,0.2);
-        //     }, duration-50);
-        // }
-        // osc.start();
     }
     
     draw = p5 => {
         p5.background(0);
-    }
-
-    handleChange(e) {
-        this.setState({currentFreq: e.target.value});
     }
 
     runAnalysis(num){
@@ -90,7 +62,7 @@ import 'p5/lib/addons/p5.sound';
             }, duration-50);
         }
         osc.start();
-    }
+    };
   
     render() {
         if(this.state.isAnalysis === true){

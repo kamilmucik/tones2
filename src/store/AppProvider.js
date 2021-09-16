@@ -10,6 +10,7 @@ const defaultAppState = {
     currentInstrument: 'sax',
     currentNote: 'Gh4',
     currentPlayTime: 0,
+    micLevel: 0.5
 };
 
 const appReducer = (state, action) => {
@@ -21,6 +22,7 @@ const appReducer = (state, action) => {
     const currentInstrument = state.currentInstrument;
     const currentNote = state.currentNote;
     const currentPlayTime = state.currentPlayTime;
+    const micLevel = state.micLevel;
 
     if (action.type === 'ADD') {
         const updatedMetronomTempoValue = state.metronomTempoValue + 5;
@@ -32,7 +34,8 @@ const appReducer = (state, action) => {
             chartCheckedValue: chartCheckedValue,
             currentInstrument: currentInstrument,
             currentNote: currentNote,
-            currentPlayTime: currentPlayTime
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
         };
     }
     if (action.type === 'REMOVE') {
@@ -45,7 +48,8 @@ const appReducer = (state, action) => {
             chartCheckedValue: chartCheckedValue,
             currentInstrument: currentInstrument,
             currentNote: currentNote,
-            currentPlayTime: currentPlayTime
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
         };
     }
     if (action.type === 'MICROPHONE') {
@@ -58,7 +62,8 @@ const appReducer = (state, action) => {
             chartCheckedValue: chartCheckedValue,
             currentInstrument: currentInstrument,
             currentNote: currentNote,
-            currentPlayTime: currentPlayTime
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
         };
     }
     if (action.type === 'PLAY') {
@@ -71,7 +76,8 @@ const appReducer = (state, action) => {
             chartCheckedValue: chartCheckedValue,
             currentInstrument: currentInstrument,
             currentNote: currentNote,
-            currentPlayTime: currentPlayTime
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
         };
     }
     if (action.type === 'CHART') {
@@ -84,7 +90,8 @@ const appReducer = (state, action) => {
             chartCheckedValue: chartCheckedValue,
             currentInstrument: currentInstrument,
             currentNote: currentNote,
-            currentPlayTime: currentPlayTime
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
         };
     }
     if (action.type === 'INSTRUMENT') {
@@ -97,7 +104,8 @@ const appReducer = (state, action) => {
             chartCheckedValue: chartCheckedValue,
             currentInstrument: currentInstrument,
             currentNote: currentNote,
-            currentPlayTime: currentPlayTime
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
         };
     }
     
@@ -111,7 +119,8 @@ const appReducer = (state, action) => {
             chartCheckedValue: chartCheckedValue,
             currentInstrument: currentInstrument,
             currentNote: currentNote,
-            currentPlayTime: currentPlayTime
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
         };
     }
     
@@ -125,7 +134,23 @@ const appReducer = (state, action) => {
             chartCheckedValue: chartCheckedValue,
             currentInstrument: currentInstrument,
             currentNote: currentNote,
-            currentPlayTime: currentPlayTime
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
+        };
+    }
+    
+    if (action.type === 'MICLEVEL') {
+        const micLevel = action.item;
+        return {
+            notes: [],
+            metronomTempoValue: updatedMetronomTempoValue,
+            microphoneCheckedValue: microphoneCheckedValue,
+            playCheckedValue: playCheckedValue,
+            chartCheckedValue: chartCheckedValue,
+            currentInstrument: currentInstrument,
+            currentNote: currentNote,
+            currentPlayTime: currentPlayTime,
+            micLevel: micLevel
         };
     }
     
@@ -163,6 +188,9 @@ const AppProvider = props => {
     const setCurrentPlayTimeHandler = value => {
         dispatchAppAction({type: 'PLAYTIMMER', item: value});
     }
+    const setMicLevelHandler = value => {
+        dispatchAppAction({type: 'MICLEVEL', item: value});
+    }
 
     const appContext = {
         notes: appState.notes,
@@ -173,6 +201,7 @@ const AppProvider = props => {
         currentInstrument: appState.currentInstrument,
         currentNote: appState.currentNote,
         currentPlayTime: appState.currentPlayTime,
+        micLevel: appState.micLevel,
         incMetronomTempo: incMetronomTempoHandler,
         decMetronomTempo: decMetronomTempoHandler,
         setMicrophoneChecked: setMicrophoneCheckedHandler,
@@ -180,7 +209,8 @@ const AppProvider = props => {
         setChartChecked: setChartCheckedHandler,
         setCurrentInstrument: setCurrentInstrumentHandler,
         setCurrentNote: setCurrentNoteHandler,
-        setCurrentPlayTime: setCurrentPlayTimeHandler
+        setCurrentPlayTime: setCurrentPlayTimeHandler,
+        setMicLevel: setMicLevelHandler
     };
 
     return <AppContext.Provider value={appContext}>

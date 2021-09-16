@@ -9,6 +9,7 @@ const AppContext = React.createContext({
     currentInstrument: 'venova',
     currentNote: 'Gh4',
     currentPlayTime: 0,
+    micLevel: 0.5,
     incMetronomTempo: () => { },
     decMetronomTempo: () => { },
     setMicrophoneChecked: () => { },
@@ -16,7 +17,8 @@ const AppContext = React.createContext({
     setChartChecked: () => { },
     setCurrentInstrument: () => {},
     setCurrentNote: () => {},
-    setCurrentPlayTime: () => {}
+    setCurrentPlayTime: () => {},
+    setMicLevel: () => {}
 });
 
 export default AppContext;

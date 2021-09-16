@@ -13,6 +13,7 @@ const DebugPanel = props => {
     const chartCheckedValue = appCtx.chartCheckedValue;
     const currentInstrument = appCtx.currentInstrument;
     const currentNote = appCtx.currentNote;
+    const micLevel = appCtx.micLevel;
     const currentPlayTime = appCtx.currentPlayTime;
 
     return <Fragment>
@@ -23,6 +24,7 @@ const DebugPanel = props => {
                 <tr><td>metronom tempo</td><td>:</td><td>{metronomTempoValue}</td></tr>        
                 <tr><td>currentInstrument</td><td>:</td><td>{currentInstrument}</td></tr>        
                 <tr><td>currentNote</td><td>:</td><td>{currentNote}</td></tr>                
+                <tr><td>micLevel</td><td>:</td><td>{micLevel}</td></tr>                
                 <tr><td>microphoneChecked</td><td>:</td><td>{microphoneCheckedValue ? 'true' : 'false'}</td></tr>
                 <tr><td>playCheckedValue</td><td>:</td><td>{playCheckedValue ? 'true' : 'false'}</td></tr>
                 <tr><td>chartCheckedValue</td><td>:</td><td>{chartCheckedValue ? 'true' : 'false'}</td></tr>

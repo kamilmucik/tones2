@@ -3,6 +3,7 @@ import AppContext from '../../store/app-context';
 import classes from './NotePanel.module.css';
 import NoteImage from './NoteImage';
 import P5Example01 from '../common/P5Example01';
+import P5MicExample from '../common/P5MicExample';
 
 const DUMMY_SONG = {
     title: 'Sto lat',
@@ -25,25 +26,25 @@ const DUMMY_SONG = {
         {
             id: 3,
             note: 'G_5',
-            delay: 5000,
+            delay: 500,
             withNote: 20
         },
         {
             id: 4,
             note: 'E_5',
-            delay: 5000,
+            delay: 500,
             withNote: 20
         },
         {
             id: 5,
             note: 'G_5',
-            delay: 5000,
+            delay: 500,
             withNote: 20
         },
         {
             id: 6,
             note: 'A_5',
-            delay: 5000,
+            delay: 500,
             withNote: 20
         },
         {
@@ -163,36 +164,36 @@ const DUMMY_SONG = {
         {
             id: 26,
             note: 'E_5',
-            delay: 100,
+            delay: 500,
             withNote: 20
         },
         {
             id: 27,
             note: 'G_5',
-            delay: 100,
+            delay: 500,
             withNote: 20
         },
         {
             id: 28,
             note: 'C_6',
-            delay: 100,
+            delay: 500,
             withNote: 20
         },
         {
             id: 29,
             note: 'B_5',
-            delay: 100,
+            delay: 500,
             withNote: 20
         },
         {
             id: 30,
             note: 'A_5',
-            delay: 100,
+            delay: 500,
             withNote: 20
         },
         {
             id: 31,
-            note: 'F_5',
+            note: 'G_5',
             delay: 500,
             withNote: 20
         },
@@ -223,7 +224,7 @@ const DUMMY_SONG = {
         {
             id: 36,
             note: 'C_6',
-            delay: 15000,
+            delay: 500,
             withNote: 20
         },
     ]
@@ -233,56 +234,45 @@ const NotePanel = props => {
 
     const appCtx = useContext(AppContext);
 
+    const micLevel = appCtx.micLevel;
+
     const [timerOn, setTimerOn] = useState(false);
     const [index, setIndex] = useState(0);
     
     const [indexTransalte, setIndexTransalte] = useState(0);
 
     useEffect(() => {
-        // let timerOn = appCtx.microphoneChecked;
-
         if (timerOn) {
-
             setTimeout(
                 () =>
                     setIndex((prevIndex) =>
                     prevIndex === DUMMY_SONG.notes.length - 1 ? 0 : prevIndex + 1
                     ),
-                // delay
                 DUMMY_SONG.notes[index].delay + 200
             );
             return () => {};
-
         }
     }, [index,timerOn]);
 
     useEffect(() => {
         // appCtx.setCurrentPlayTime(time);
         appCtx.setCurrentNote(DUMMY_SONG.notes[index].note);
-        console.log(DUMMY_SONG.notes[index].note, '- Has changed');
+        // console.log(DUMMY_SONG.notes[index].note, '- Has changed');
         },[index]); // <-- here put the parameter to listen
 
     useEffect(() => {
-        // setTimerOn(microphoneChecked);
-        // appCtx.setCurrentPlayTime(time);
-        // appCtx.setCurrentNote(DUMMY_SONG.notes[index].note);
         console.log(timerOn, 'microphoneChecked - Has changed')
     },[timerOn]); // <-- here put the parameter to listen
 
 
-    function changeNoteFunction(name) {
-        // console.log(`hello, ${name}`);
-        appCtx.setCurrentNote(name);
-      }
+    const micLevelChangeHandler = (value) => {
+        appCtx.setMicLevel(value);
+    };
 
-      
     function nextSlide(n) {
-        console.log(`hello, ${n}`);
         setIndexTransalte(indexTransalte+n);
         setTimerOn(!timerOn);
     }
-
-    
 
     return <Fragment>
         <div className={classes.slideshowCenterContainer}>
@@ -315,6 +305,9 @@ const NotePanel = props => {
             </div>
             <div>
                 <P5Example01 testIndx={index} currNote={DUMMY_SONG.notes[index].note} />
+            </div>
+            <div>
+                <P5MicExample onMicLevelChange={micLevelChangeHandler} />
             </div>
         </div>
     </Fragment>
