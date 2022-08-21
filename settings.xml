@@ -2,8 +2,7 @@
     <servers>
         <server>
             <id>my-scm-server</id>
-            <privateKey>/Users/kamilmucik/.ssh/id_rsa</privateKey>
-            <passphrase>!QAZse4</passphrase>
+            <privateKey>~/.ssh/id_rsa</privateKey>
         </server>
     </servers>
     <pluginGroups>
