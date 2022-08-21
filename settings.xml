@@ -3,8 +3,7 @@
         <server>
             <id>my-scm-server</id>
             <username>kamilmucik</username>
-            <privateKey>~/.ssh/id_rsa</privateKey>
-            <passphrase>${passphrase}</passphrase>
+            <privateKey>~/.ssh/git_rsa</privateKey>
         </server>
     </servers>
     <pluginGroups>

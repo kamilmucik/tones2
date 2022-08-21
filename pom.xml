@@ -10,7 +10,6 @@
   <properties>
     <project.scm.id>my-scm-server</project.scm.id>
     <env>-dev</env>
-    <passphrase />
   </properties>
 
   <build>
