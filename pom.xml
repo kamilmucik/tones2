@@ -4,7 +4,7 @@
 
   <groupId>pl.esterx</groupId>
   <artifactId>tones</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -17,9 +17,9 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
+        <version>3.0.0-M6</version>
         <configuration>
-          <privateKey>~/.ssh/id_rsa</privateKey>
+          <serverId>my-server</serverId>
         </configuration>
       </plugin>
       <plugin>
