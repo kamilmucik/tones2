@@ -4,11 +4,11 @@
 
   <groupId>pl.esterx</groupId>
   <artifactId>tones</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <project.scm.id>my-scm-server</project.scm.id>
+<!--    <project.scm.id>my-scm-server</project.scm.id>-->
     <env>-dev</env>
   </properties>
 
@@ -19,7 +19,8 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>3.0.0-M6</version>
         <configuration>
-          <serverId>my-scm-server</serverId>
+<!--          <serverId>my-scm-server</serverId>-->
+          <privateKey>~/.ssh/id_rsa</privateKey>
         </configuration>
       </plugin>
       <plugin>
