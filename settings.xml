@@ -4,6 +4,7 @@
             <id>my-scm-server</id>
             <username>kamilmucik</username>
             <privateKey>~/.ssh/git_rsa</privateKey>
+            <passphrase></passphrase>
         </server>
     </servers>
     <pluginGroups>
