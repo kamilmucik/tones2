@@ -106,3 +106,5 @@ dist
 target/
 node/
 build/
+.idea/
+.DS_Store

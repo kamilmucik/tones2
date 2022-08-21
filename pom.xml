@@ -4,7 +4,7 @@
 
   <groupId>pl.esterx</groupId>
   <artifactId>tones</artifactId>
-  <version>0.0.1${env}</version>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -147,39 +147,48 @@
     </build>
 
   <distributionManagement>
-    <!-- <repository>
-      <id>nexus</id>
-      <name>EVB Release</name>
-      <url>http://bpnexus.bpsa.pl:8081/repository/maven-releases/</url>
-    </repository> -->
     <repository>
-        <id>nexus</id>
-        <name>EVB Release</name>
-        <url>file:///home/repo</url>
+      <id>nexus</id>
+      <name>maven-releases</name>
+      <url>file:////tmp/project</url>
     </repository>
-
     <snapshotRepository>
       <id>nexus</id>
-      <name>EVB Snapshot</name>
-      <!-- <url>http://bpnexus.bpsa.pl:8081/repository/maven-snapshots/</url> -->
-      <url>file:///home/repo</url>
-      <uniqueVersion>false</uniqueVersion>
+      <name>maven-snapshots</name>
+      <url>file:////tmp/project</url>
     </snapshotRepository>
   </distributionManagement>
 
   <scm>
-    <connection>scm:git:https://bpgitlab.bpsa.pl/finanse/evb-web-app.git</connection>
-    <developerConnection>scm:git:https://bpgitlab.bpsa.pl/finanse/evb-web-app.git</developerConnection>
-    <url>https://bpgitlab.bpsa.pl/finanse/evb-web-app.git</url>
-    <tag>smbm-services-3.2.0.12</tag>
+    <connection>scm:git:https://github.com/kamilmucik/tones2.git</connection>
+    <developerConnection>scm:git:https://github.com/kamilmucik/tones2.git</developerConnection>
+    <url>https://github.com/kamilmucik/tones2.git</url>
+    <tag>tones-0.0.1</tag>
   </scm>
 
   <repositories>
     <repository>
-      <id>maven-releases</id>
-      <name>maven-releases</name>
-      <!-- <url>http://bpnexus.bpsa.pl:8081/repository/maven-public/</url> -->
-      <url>file:///home/repo</url>
+      <id>Central Maven repository</id>
+      <name>Central Maven repository https</name>
+      <url>https://repo.maven.apache.org/maven2</url>
     </repository>
   </repositories>
+
+  <developers>
+    <developer>
+      <id>kamilmucik</id>
+      <name>Kamil Mucik</name>
+      <email>k.mucik@e-strix.pl</email>
+      <organization>e-strix.pl</organization>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  <organization>
+    <name>Kamil Mucik</name>
+    <url>e-strix.pl</url>
+  </organization>
+
 </project>

@@ -70,6 +70,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
+tones -> mvn clean package -Papp
+
+tones -> mvn clean install sonar:sonar -Psonar --settings=settings.xml
+
+tones -> mvn -B -DdevelopmentVersion="0.0.2-SNAPSHOT" -DrleaseVersion="0.0.1" -Dresume=false release:prepare release:perform -DdryRun=true
+
+
 IMAGES
 https://iconarchive.com/show/ios7-icons-by-icons8/User-Interface-Hand-Palm-Scan-icon.html
 https://iconarchive.com/show/outline-icons-by-iconsmind/Bulleted-List-icon.html
