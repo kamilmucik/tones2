@@ -74,7 +74,7 @@ tones -> mvn clean package -Papp
 
 tones -> mvn clean install sonar:sonar -Psonar --settings=settings.xml
 
-tones -> mvn -B -DdevelopmentVersion="0.0.2-SNAPSHOT" -DrleaseVersion="0.0.1" -Dresume=false release:prepare release:perform -DdryRun=true
+tones -> mvn -B -DdevelopmentVersion="0.0.2-SNAPSHOT" -DreleaseVersion="0.0.1" -Dresume=false release:prepare release:perform -DdryRun=true
 
 
 IMAGES
